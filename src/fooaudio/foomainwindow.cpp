@@ -10,23 +10,10 @@ using namespace std;
 #include "foomainwindow.hpp"
 #include "fooplaylistwidget.hpp"
 
-FooMainWindow * FooMainWindow::Instance = 0;
-
 FooMainWindow::FooMainWindow()
 : QMainWindow (), maxProgress(1000), slider_pos(-1)
 {
-    Instance = this;
     init();
-}
-
-FooMainWindow * FooMainWindow::instance()
-{
-        if (0 == Instance)
-        {
-                Instance = new FooMainWindow();
-                Instance->init();
-        }
-        return Instance;
 }
 
 void FooMainWindow::setAudioEngine(FooPhononAudioEngine * engine)
