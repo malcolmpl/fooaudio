@@ -21,15 +21,11 @@ class	FooMainWindow : public QMainWindow
 	Q_OBJECT
 	Q_DISABLE_COPY(FooMainWindow)
 
-	static FooMainWindow *Instance;
-
 	void init();
 
 public:
 	FooMainWindow ();
 	~FooMainWindow ();
-
-	static FooMainWindow * instance();
 
 	void setAudioEngine(FooPhononAudioEngine * engine);
 

@@ -39,10 +39,7 @@ FooPlaylistWidget::FooPlaylistWidget ()
 
 void FooPlaylistWidget::contextMenuEvent ( QContextMenuEvent * event )
 {
-    FooMainWindow *mainWindow = FooMainWindow::instance();
-    if (!mainWindow)
-        return;
-
+/*
     QMenu menu;
     QAction *action;
 
@@ -64,7 +61,7 @@ void FooPlaylistWidget::contextMenuEvent ( QContextMenuEvent * event )
 
         menu.addSeparator ();
 
-        action = menu.addAction (tr ("&Add To Queue"), mainWindow, SLOT (addToQueue())/*, QKeySequence::Close*/);
+        action = menu.addAction (tr ("&Add To Queue"), mainWindow, SLOT (addToQueue()));
         action->setData (index);
 
         // condition
@@ -92,6 +89,7 @@ void FooPlaylistWidget::contextMenuEvent ( QContextMenuEvent * event )
     }
 
     menu.exec (QCursor::pos ());
+*/
 }
 
 void FooPlaylistWidget::addFile (const QString &file, int index)
