@@ -30,12 +30,12 @@ public:
     ~FooApplication();
     int start(int argc, char *argv[]);
 
-private:
-    void InitializeLogic();
-    QApplication *m_application;
-
-public slots:
+private slots:
+    void Initialize();
     void quitApp();
+
+private:
+    QApplication *m_application;
 };
 
 #endif // FOOAPPLICATION_H

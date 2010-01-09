@@ -1,9 +1,9 @@
 #include <QApplication>
 #include <QPluginLoader>
 
-#include <Phonon/AudioOutput>
-#include <Phonon/MediaObject>
-#include <Phonon/BackendCapabilities>
+#include <phonon/audiooutput.h>
+#include <phonon/mediaobject.h>
+#include <phonon/backendcapabilities.h>
 
 #include <QtDebug>
 

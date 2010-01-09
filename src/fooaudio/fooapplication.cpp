@@ -22,9 +22,10 @@
 #include "foomainwindow.hpp"
 #include "logic/applicationlogic.h"
 
+#include <QTimer>
+
 FooApplication::FooApplication()
 {
-    InitializeLogic();
 }
 
 FooApplication::~FooApplication()
@@ -35,6 +36,20 @@ FooApplication::~FooApplication()
 int FooApplication::start(int argc, char *argv[])
 {
     m_application = new QApplication(argc, argv);
+
+    QTimer::singleShot(1, this, SLOT(Initialize()));
+
+    return m_application->exec();
+}
+
+void FooApplication::quitApp()
+{
+    ApplicationLogic::Release();
+}
+
+void FooApplication::Initialize()
+{
+    ApplicationLogic::getInstance()->start();
 
     QObject::connect(m_application, SIGNAL(aboutToQuit()), this, SLOT(quitApp()));
 
@@ -48,17 +63,6 @@ int FooApplication::start(int argc, char *argv[])
     fooMainWindow->setAudioEngine(fooAudioEngine);
 
     fooMainWindow->show();
-
-    return m_application->exec();
 }
 
-void FooApplication::quitApp()
-{
-    ApplicationLogic::Release();
-}
-
-void FooApplication::InitializeLogic()
-{
-    ApplicationLogic::getInstance()->start();
-}
 

@@ -8,13 +8,14 @@ find_package(PkgConfig REQUIRED)
 # this does not work sometimes
 #SET(QT_USE_PHONON 1)
 
-include(${QT_USE_FILE})
+include(${QT_USE_FILE} ${QT_USE_PHONON})
 
-pkg_check_modules(PHONON REQUIRED phonon)
+#pkg_check_modules(PHONON REQUIRED phonon)
 
-include_directories( ${PHONON_INCLUDE_DIRS} )
-link_directories( ${PHONON_LIBRARY_DIRS} )
-add_definitions( ${QT_DEFINITIONS} ${PHONON_CFLAGS_OTHER} )
+include_directories( ${QT_PHONON_INCLUDE_DIR} )
+#link_directories( ${PHONON_LIBRARY_DIRS} )
+#add_definitions( ${QT_DEFINITIONS} ${PHONON_CFLAGS_OTHER} )
+add_definitions( ${QT_DEFINITIONS} )
 
 #package includedir libdir linkflags cflags
 #IF(NOT QT_PHONON_FOUND)
